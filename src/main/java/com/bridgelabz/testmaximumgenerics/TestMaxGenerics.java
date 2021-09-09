@@ -32,19 +32,17 @@ public class TestMaxGenerics<T extends Comparable<T>>{
         printMax(x,y,z,max);
 
         return max;
-
-
     }
 
 
-    public static <T> void printMax(T x,T y,T z,T max){
+    public static <T> void printMax(T x,T y,T z,T max) {
         System.out.println("Max is: "+max);
     }
 
     public static void main(String args[]){
-        Integer xInt = 13,yInt = 30,zInt = 24,aInt = 22;
-        Float xF1 = 3.4f,yF1 = 1.1F,zF1 = 7.3F,aF1 = 6.9f;
-        String xStr = "Saurabh",yStr = "Swati",zStr = "Sonali",aStr = "Tushar";
+        Integer xInt = 13, yInt = 30, zInt = 24, aInt = 22;
+        Float xF1 = 3.4f, yF1 = 5.6F, zF1 = 2.8F, aF1 = 2.1f;
+        String xStr = "Saurabh", yStr = "Swati", zStr = "Sonali", aStr = "Tushar";
 
         new TestMaxGenerics(xInt,yInt,zInt,aInt).maximum();
         new TestMaxGenerics(xF1,yF1,zF1,aF1).maximum();
