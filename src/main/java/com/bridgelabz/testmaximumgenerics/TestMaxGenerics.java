@@ -1,27 +1,45 @@
 package com.bridgelabz.testmaximumgenerics;
 
-public class TestMaxGenerics {
+public class TestMaxGenerics<T extends Comparable<T>>{
 
-	public static <T extends Comparable<T>> T findmax(T[] array)
+    T x,y,z;
+
+    public TestMaxGenerics(T x, T y, T z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
+
+    public T maximum(){
+        return TestMaxGenerics.maximum(x,y,z);
+    }
+
+    public static <T extends Comparable<T>> T maximum(T x,T y,T z)
     {
-        T max = array[0];
+        T max = x;
 
-        if (array[1].compareTo(max) > 0)
-            max = array[1];
+        if (y.compareTo(max) > 0)
+            max = y;
 
-        if (array[2].compareTo(max) > 0)
-            max = array[2];
+        if (z.compareTo(max) > 0)
+            max = z;
+
+        printMax(x,y,z,max);
 
         return max;
     }
 
-    public static void main(String[] args) {
-        Integer[] intArray = {3,7,2};
-        Float[] floatArray = {2.5f,6.0f,9.7f};
-        String[] stringArray={"Saurabh","Swati","Sonali"};
+    public static <T> void printMax(T x,T y,T z,T max){
+        System.out.println("Max is: "+max);
+    }
 
-        System.out.println(findmax(intArray));
-        System.out.println(findmax(floatArray));
-        System.out.println(findmax(stringArray));
+    public static void main(String args[]){
+        Integer xInt = 3,yInt = 8,zInt = 7;
+        Float xF1 = 6.3f,yF1 = 3.1F,zF1 = 9.1F;
+        String xStr = "Saurabh",yStr = "Swati",zStr = "Sonali";
+
+        new TestMaxGenerics(xInt,yInt,zInt).maximum();
+        new TestMaxGenerics(xF1,yF1,zF1).maximum();
+        new TestMaxGenerics(xStr,yStr,zStr).maximum();
     }
 }
